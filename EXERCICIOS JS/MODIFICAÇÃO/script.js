@@ -18,3 +18,8 @@ const duasSentencas = "Livre-se do açucar; do doce nunca!"
 const frasesSeparadas = duasSentencas.split(';');
 
 console.log(frasesSeparadas);
+
+//exercicio 06: Separar número com split()
+const numerosSeparados = "1,2,3,4,5";
+const arrayNumeros = numerosSeparados.split(',');
+console.log(arrayNumeros);
