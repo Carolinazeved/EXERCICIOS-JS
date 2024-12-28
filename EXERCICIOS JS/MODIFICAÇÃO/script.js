@@ -9,6 +9,12 @@ const numero1 = 10;
 const numero2 = 20;
 
 const soma = numero1 + numero2;
-const mensagem = `A soma de ${numero1} e ${numero2} é  = ${soma}.`;
+const mensagem = `A soma de ${numero1} e ${numero2} é = ${soma}.`;
 
-alert(mensagem);
+console.log(mensagem);
+
+//exercicio 05: separador de duas sentencas
+const duasSentencas = "Livre-se do açucar; do doce nunca!"
+const frasesSeparadas = duasSentencas.split(';');
+
+console.log(frasesSeparadas);
