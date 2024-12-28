@@ -5,4 +5,4 @@ function capturarValores() {
 
  document.getElementById('mostraNome').textContent = `Nome: ${nome}, Idade: ${idade}`;
     console.log(`Nome: ${nome}, Idade: ${idade}`);
-}
+} .
