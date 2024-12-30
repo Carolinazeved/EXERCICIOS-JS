@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Temperatura</title>
+</head>
+<body>
+    <h1>Conversor de Temperatura</h1>
+
+    <label for="temperatura">Digite a temperatura:</label>
+    <input type="number" id="temperatura" placeholder="Ex: 25">
+
+    <label for="escala">Converter para:</label>
+    <select id="escala">
+        <option value="Fahrenheit">Fahrenheit</option>
+        <option value="Celsius">Celsius</option>
+    </select>
+
+    <button onclick="converterTemperatura()">Converter</button>
+    <p id="resultado"></p>
+
+    <script>
+        // Função para converter temperatura
+        function converterTemperatura() {
+            const temperatura = parseFloat(document.getElementById("temperatura").value);
+            const escala = document.getElementById("escala").value;
+            let resultado;
+
+            if (isNaN(temperatura)) {
+                resultado = "Por favor, insira uma temperatura válida.";
+            } else {
+                if (escala === "Fahrenheit") {
+                    // Celsius para Fahrenheit
+                    resultado = `${temperatura}°C é equivalente a ${(temperatura * 9 / 5 + 32).toFixed(2)}°F.`;
+                } else if (escala === "Celsius") {
+                    // Fahrenheit para Celsius
+                    resultado = `${temperatura}°F é equivalente a ${((temperatura - 32) * 5 / 9).toFixed(2)}°C.`;
+                } else {
+                    resultado = "Escala de conversão inválida.";
+                }
+            }
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</body>
+</html>

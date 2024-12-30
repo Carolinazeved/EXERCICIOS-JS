@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simples</title>
+</head>
+<body>
+    <h1>Calculadora Simples</h1>
+    
+    <label for="num1">Número 1:</label>
+    <input type="number" id="num1" placeholder="Digite o primeiro número">
+    
+    <label for="num2">Número 2:</label>
+    <input type="number" id="num2" placeholder="Digite o segundo número">
+    
+    <label for="operacao">Operação:</label>
+    <select id="operacao">
+        <option value="adicao">Adição</option>
+        <option value="subtracao">Subtração</option>
+        <option value="multiplicacao">Multiplicação</option>
+        <option value="divisao">Divisão</option>
+    </select>
+    
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+
+    <h2>Par ou Ímpar</h2>
+    <label for="numero">Digite um número:</label>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="verificarParidade()">Verificar</button>
+    <p id="paridade"></p>
+
+    <script>
+        // Funções para operações matemáticas
+        function adicao(a, b) {
+            return a + b;
+        }
+
+        function subtracao(a, b) {
+            return a - b;
+        }
+
+        function multiplicacao(a, b) {
+            return a * b;
+        }
+
+        function divisao(a, b) {
+            if (b === 0) {
+                return "Erro: Divisão por zero!";
+            }
+            return a / b;
+        }
+
+        // Função principal para a calculadora
+        function calcular() {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            const operacao = document.getElementById("operacao").value;
+
+            let resultado;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultado = "Por favor, insira números válidos.";
+            } else {
+                switch (operacao) {
+                    case "adicao":
+                        resultado = `Resultado: ${adicao(num1, num2)}`;
+                        break;
+                    case "subtracao":
+                        resultado = `Resultado: ${subtracao(num1, num2)}`;
+                        break;
+                    case "multiplicacao":
+                        resultado = `Resultado: ${multiplicacao(num1, num2)}`;
+                        break;
+                    case "divisao":
+                        resultado = `Resultado: ${divisao(num1, num2)}`;
+                        break;
+                    default:
+                        resultado = "Operação inválida.";
+                }
+            }
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        // Função para verificar se um número é par ou ímpar
+        function verificarParidade() {
+            const numero = parseInt(document.getElementById("numero").value);
+
+            if (isNaN(numero)) {
+                document.getElementById("paridade").innerText = "Por favor, insira um número válido.";
+            } else {
+                if (numero % 2 === 0) {
+                    document.getElementById("paridade").innerText = `O número ${numero} é par.`;
+                } else {
+                    document.getElementById("paridade").innerText = `O número ${numero} é ímpar.`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
